@@ -6,5 +6,5 @@ export function PokemonDetail() {
 
   const { data, loading } = usePokemonDetail(id);
 
-  return <div>{!loading && data && JSON.stringify(data)}</div>;
+  return <div>{!loading && data && JSON.stringify(data.types)}</div>;
 }
