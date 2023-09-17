@@ -1,15 +1,17 @@
-import { usePokemonList } from './api/getListPokemons';
-import { CardPokemonList } from './components/cardPokemonList/card-pokemon-list';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { HomePage } from './pages/home-page';
+import { Layout } from './layout';
 
 function App() {
-  const { data, loading, error } = usePokemonList();
-
   return (
-    <div>
-      {!loading && !error && data && (
-        <CardPokemonList pokemons={data.results} />
-      )}
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
+          <Route path="*" element={<HomePage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
