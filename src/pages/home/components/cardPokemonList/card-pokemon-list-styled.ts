@@ -6,8 +6,10 @@ export const Container = styled.div`
   justify-content: center;
   align-content: center;
   align-items: center;
-  height: 100vh;
   gap: 2rem;
+  min-height: 96vh;
+  margin-top: 2vh;
+  margin-bottom: 2vh;
   & a {
     min-width: 300px;
     border: 1px solid #ccc;
