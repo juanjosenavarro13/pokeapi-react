@@ -11,7 +11,9 @@ export function HomePage() {
   const { data, error } = usePokemonList(page, limit);
 
   useEffect(() => {
-    setPage(validatePage(Number(pageNumber), data.totalPages));
+    if (!isNaN(Number(pageNumber))) {
+      setPage(validatePage(Number(pageNumber), data.totalPages));
+    }
   }, [pageNumber, data.totalPages]);
 
   return (
