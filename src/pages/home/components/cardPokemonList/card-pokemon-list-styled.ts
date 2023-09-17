@@ -8,17 +8,18 @@ export const Container = styled.div`
   align-items: center;
   height: 100vh;
   gap: 2rem;
-  & div {
+  & a {
     min-width: 300px;
     border: 1px solid #ccc;
     display: flex;
     align-items: center;
+    text-decoration: none;
     & h2 {
       font-family: 'pokemon_hollownormal';
       font-size: 2rem;
     }
   }
-  & div:hover {
+  & a:hover {
     & h2 {
       font-family: 'pokemon_solidnormal';
     }

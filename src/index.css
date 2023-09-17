@@ -2,15 +2,13 @@
     margin : 0;
     padding: 0;
     box-sizing : border-box;
-    font-familly : "Poppins", sans-serif;
 }
 
 
 
 @font-face {
     font-family: 'pokemon_solidnormal';
-    src: url('./assets/fonts/pokemon_solid-webfont.woff2') format('woff2'),
-         url('./assets/fonts/pokemon_solid-webfont.woff') format('woff');
+    src: url('./assets/fonts/pokemon_solid-webfont.woff2') format('woff2'), url('./assets/fonts/pokemon_solid-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 
@@ -21,8 +19,7 @@
 
 @font-face {
     font-family: 'pokemon_hollownormal';
-    src: url('./assets/fonts/pokemon_hollow-webfont.woff2') format('woff2'),
-         url('./assets/fonts/pokemon_hollow-webfont.woff') format('woff');
+    src: url('./assets/fonts/pokemon_hollow-webfont.woff2') format('woff2'), url('./assets/fonts/pokemon_hollow-webfont.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 

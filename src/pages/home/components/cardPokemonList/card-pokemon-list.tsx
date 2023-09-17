@@ -1,6 +1,6 @@
-import { Pokemon } from '../../api/types/getPokemonDetail';
-import { CardPokemon } from '../card-pokemon/card-pokemon';
-import { Container } from './card-pokemon-list-styled';
+import { Pokemon } from '@/api/types/getPokemonDetail';
+import { CardPokemon } from '../card-pokemon';
+import { Container } from './';
 
 interface Props {
   pokemons: Pokemon[];

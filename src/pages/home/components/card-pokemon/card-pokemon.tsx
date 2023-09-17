@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Pokemon } from '../../api/types/getPokemonDetail';
-import { CardPokemonImage } from './card-pokemon-imagen';
-import { ColorName } from './card-pokemon-styles';
+import { Link } from 'react-router-dom';
+import { CardPokemonImage, ColorName } from './';
+import { Pokemon } from '@/api/types/getPokemonDetail';
 
 interface Props {
   pokemon: Pokemon;
@@ -9,12 +9,13 @@ interface Props {
 
 export function CardPokemon(props: Props) {
   const { pokemon } = props;
-  const { sprites, types } = pokemon;
+  const { sprites, types, id } = pokemon;
   const { front_default, front_shiny } = sprites;
   const [showFront, setShowFront] = useState<boolean>(true);
 
   return (
-    <div
+    <Link
+      to={`/pokemon/${id}`}
       onMouseEnter={() => {
         setShowFront(false);
       }}
@@ -28,6 +29,6 @@ export function CardPokemon(props: Props) {
         showFront={showFront}
       />
       <ColorName $inputColor={types[0].type.name}>{pokemon.name}</ColorName>
-    </div>
+    </Link>
   );
 }
