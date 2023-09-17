@@ -1,4 +1,7 @@
+import { useEffect, useState } from 'react';
 import { Pokemon } from './types/getPokemonDetail';
+import { getListPokemonsConstants } from './constants/getListPokemons';
+import { useNavigate } from 'react-router-dom';
 
 export function getPokemonDetail(url: string): Promise<Pokemon> {
   return fetch(url)
@@ -22,4 +25,30 @@ export function getPokemonDetail(url: string): Promise<Pokemon> {
         types: pokemon.types,
       };
     });
+}
+
+export function usePokemonDetail(id: string | undefined) {
+  const navigate = useNavigate();
+  const [data, setData] = useState<Pokemon | null>(null);
+  const [loading, setLoading] = useState<boolean>(false);
+
+  useEffect(() => {
+    setLoading(true);
+    if (id) {
+      getPokemonDetail(
+        getListPokemonsConstants.endpoint_detail.replace('{id}', id),
+      )
+        .then((pokemon) => {
+          setData(pokemon);
+        })
+        .catch(() => {
+          navigate('/error');
+        })
+        .finally(() => {
+          setLoading(false);
+        });
+    }
+  }, [id, navigate]);
+
+  return { data, loading };
 }

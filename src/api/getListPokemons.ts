@@ -19,7 +19,7 @@ export function usePokemonList() {
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetch(getListPokemonsConstants.endpoint)
+    fetch(getListPokemonsConstants.endpoint_list)
       .then((res) => res.json())
       .then((data: IGetPokemonsList) => {
         return {

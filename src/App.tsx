@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Layout } from './layout';
-import { HomePage, NotFoundPage } from './pages';
+import { HomePage, NotFoundPage, PokemonDetail } from './pages';
 
 function App() {
   return (
@@ -8,6 +8,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<HomePage />} />
+          <Route path="/pokemon/:id" element={<PokemonDetail />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
