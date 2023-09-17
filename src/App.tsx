@@ -1,12 +1,16 @@
-import './App.css';
 import { usePokemonList } from './api/getListPokemons';
+import { CardPokemonList } from './components/cardPokemonList/card-pokemon-list';
 
 function App() {
   const { data, loading, error } = usePokemonList();
 
-  console.log(data);
-
-  return <div>{!loading && !error && data && JSON.stringify(data.count)}</div>;
+  return (
+    <div>
+      {!loading && !error && data && (
+        <CardPokemonList pokemons={data.results} />
+      )}
+    </div>
+  );
 }
 
 export default App;
