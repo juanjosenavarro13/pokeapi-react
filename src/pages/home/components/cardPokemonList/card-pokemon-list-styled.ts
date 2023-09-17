@@ -10,14 +10,20 @@ export const Container = styled.div`
   min-height: 80vh;
   margin-bottom: 2vh;
   & a {
-    min-width: 300px;
+    height: 140px;
+    width: 300px;
     border: 1px solid #ccc;
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
     text-decoration: none;
+    & img {
+      height: 97px;
+      width: 97px;
+    }
     & h2 {
       font-family: 'pokemon_hollownormal';
-      font-size: 2rem;
+      font-size: 1.85rem;
     }
   }
   & a:hover {

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { Container } from './pagination-styled';
+import { ContainerPaginate } from './pagination-styled';
 
 interface Props {
   actualPage: number;
@@ -10,7 +10,7 @@ export function Pagination(props: Props) {
   const { actualPage, totalPages } = props;
 
   return (
-    <Container>
+    <ContainerPaginate>
       <ul>
         <li>
           {actualPage > 1 && <Link to={`/${actualPage - 1}`}>Anterior</Link>}
@@ -24,6 +24,6 @@ export function Pagination(props: Props) {
           )}
         </li>
       </ul>
-    </Container>
+    </ContainerPaginate>
   );
 }

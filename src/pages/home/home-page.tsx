@@ -1,25 +1,24 @@
 import { usePokemonList } from '@/api/getListPokemons';
 import { useEffect, useState } from 'react';
-import { CardPokemonList, Pagination } from './components';
 import { useParams } from 'react-router-dom';
+import { CardPokemonList, Container, Pagination } from './components';
 
 export function HomePage() {
+  const limit = 25;
   const { pageNumber } = useParams();
   const [page, setPage] = useState<number>(Number(pageNumber));
-  const { data, loading, error } = usePokemonList(page);
+  const { data, error } = usePokemonList(page, limit);
 
   useEffect(() => {
     setPage(Number(pageNumber) || 1);
   }, [pageNumber]);
 
   return (
-    <div>
-      {!loading && !error && data && (
-        <>
-          <CardPokemonList pokemons={data.results} />
-          <Pagination actualPage={page} totalPages={data.totalPages} />
-        </>
-      )}
-    </div>
+    <>
+      <Container>
+        {!error && data && <CardPokemonList pokemons={data.results} />}
+      </Container>
+      <Pagination actualPage={page} totalPages={data.totalPages} />
+    </>
   );
 }

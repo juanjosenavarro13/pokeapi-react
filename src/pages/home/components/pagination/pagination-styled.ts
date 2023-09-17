@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const Container = styled.nav`
+export const ContainerPaginate = styled.nav`
   text-align: center;
   margin-top: 20px;
 
