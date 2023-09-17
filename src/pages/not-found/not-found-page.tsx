@@ -20,19 +20,15 @@ const Description = styled.p`
 `;
 
 const BackButton = styled(Link)`
-  background-color: black;
-  color: #fff;
-  padding: 10px 20px;
-  text-decoration: none;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
   border-radius: 5px;
-  font-weight: bold;
-  transition: 0.5s;
-  margin-top: 2rem;
-
-  &:hover {
-    background-color: #ccc;
-    color: black;
-  }
+  background-color: #f4f4f4;
+  color: #333;
+  margin: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  text-decoration: none;
 `;
 
 export function NotFoundPage() {

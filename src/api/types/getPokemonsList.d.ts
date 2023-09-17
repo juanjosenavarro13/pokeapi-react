@@ -9,6 +9,7 @@ export interface IGetPokemonsList {
 
 export interface IGetPokemonsListWithRealData {
   count: number;
+  totalPages: number;
   next: string | null;
   previous: string | null;
   results: Pokemon[];

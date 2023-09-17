@@ -7,7 +7,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<HomePage />} />
+          <Route index path="/:pageNumber?" element={<HomePage />} />
           <Route path="/pokemon/:id" element={<PokemonDetail />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>

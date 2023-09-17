@@ -6,20 +6,27 @@ import {
   IGetPokemonsListWithRealData,
 } from './types/getPokemonsList';
 
-export function usePokemonList() {
+export function usePokemonList(page: number, limit: number = 25) {
   const [data, setData] = useState<IGetPokemonsListWithRealData>({
     count: 0,
     next: null,
+    totalPages: 0,
     previous: null,
     results: [],
   });
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<boolean>(false);
 
+  const offset = limit * page - limit;
+
+  const endpoint = getListPokemonsConstants.endpoint_list
+    .replace('{offset}', String(offset))
+    .replace('{limit}', String(limit));
+
   useEffect(() => {
     setLoading(true);
     setError(false);
-    fetch(getListPokemonsConstants.endpoint_list)
+    fetch(endpoint)
       .then((res) => res.json())
       .then((data: IGetPokemonsList) => {
         return {
@@ -31,7 +38,11 @@ export function usePokemonList() {
       })
       .then((data) => {
         Promise.all(data.promises).then((pokemonDetails) => {
-          setData({ ...data.data, results: pokemonDetails });
+          setData({
+            ...data.data,
+            results: pokemonDetails,
+            totalPages: data.data.count / limit,
+          });
         });
       })
       .catch(() => {
@@ -40,7 +51,7 @@ export function usePokemonList() {
       .finally(() => {
         setLoading(false);
       });
-  }, []);
+  }, [page, endpoint, limit]);
 
   return { data, loading, error };
 }

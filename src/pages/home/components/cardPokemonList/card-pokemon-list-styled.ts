@@ -7,8 +7,7 @@ export const Container = styled.div`
   align-content: center;
   align-items: center;
   gap: 2rem;
-  min-height: 96vh;
-  margin-top: 2vh;
+  min-height: 80vh;
   margin-bottom: 2vh;
   & a {
     min-width: 300px;
