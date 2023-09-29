@@ -13,9 +13,11 @@ export function PokemonDetailImageName(props: Props) {
     <ImageAndName>
       <img src={img} alt={name} width={150} height={150} />
       <ColorName $inputColor={types[0].type.name}>{name}</ColorName>
-      {types.map((type) => {
-        return <small key={type.type.name}>{type.type.name} </small>;
-      })}
+      <sub>
+        {types.map((type) => {
+          return <small key={type.type.name}>{type.type.name} </small>;
+        })}
+      </sub>
     </ImageAndName>
   );
 }
